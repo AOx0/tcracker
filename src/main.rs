@@ -4,28 +4,7 @@ use std::process::exit;
 mod args;
 mod version;
 mod bytes;
-
-macro_rules! printf {
-    ( $($t:tt)* ) => {
-        {
-            use std::io::Write;
-            let mut h = std::io::stdout();
-            write!(h, $($t)* ).unwrap();
-            h.flush().unwrap();
-        }
-    }
-}
-
-macro_rules! eprintf {
-    ( $($t:tt)* ) => {
-        {
-            use std::io::Write;
-            let mut h = std::io::stderr();
-            write!(h, $($t)* ).unwrap();
-            h.flush().unwrap();
-        }
-    }
-}
+mod utils;
 
 
 #[tokio::main]
@@ -38,7 +17,7 @@ async fn main() {
     let binary = format!("{}/Contents/MacOS/{}", path, app);
 
     if !(version.0 <= 1 && version.1 <= 1 && version.2 <= 5) {
-        printf!("This tool was proved up to version 1.0.5\nDo you want to continue for version {}.{}.{}? [y/n]: ", version.0, version.1, version.2);
+        printf!("This tool was tested up to version 1.1.5\nDo you want to continue for version {}.{}.{}? [y/n]: ", version.0, version.1, version.2);
         let mut input = String::new();
         io::stdin().read_line(&mut input).expect("error: unable to read user input");
         input = input.replace(" ", "").replace("\n", "").trim().parse().unwrap();
