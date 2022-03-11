@@ -41,6 +41,7 @@ async fn main() {
             b.0[address + 2] = 0xEB;
 
             b.write();
+            printf!("    [*] Done!\n");
         } else if b.0[address] == 0x89 && b.0[address + 2] == 0xEB {
             eprintf!("    [x] Error: Already patched\n");
             exit(1);
