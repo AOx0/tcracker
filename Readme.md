@@ -29,4 +29,5 @@ If something went wrong (probably because selecting a similar pattern):
 
 	alejandro@Mac ~ % tcracker /Applications/T*********.app
 	Trying to crack ...
+	    [*] Found address at: 0x7C9C6
 	    [x] Error: Found unexpected bytes: 0x4B, 0x7A
