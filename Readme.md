@@ -8,9 +8,9 @@ Execution might look like:
 
 	alejandro@Mac ~ % tcracker /Applications/T*********.app
 	Trying to crack ...
-	    [*] Found address at: 0x7C9C6
-	    [*] 510416: 85 -> 89
-	    [*] 510418: 74 -> eb
+	    [*] Found address at: 0x82845
+	    [*] 0x8284F: 85 -> 89
+	    [*] 0x82851: 74 -> EB
 	    [*] Done!
 
 If already patched:
