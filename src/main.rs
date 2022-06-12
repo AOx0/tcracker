@@ -34,8 +34,8 @@ async fn main() {
         let address = address + 10;
 
         if  b.0[address] == 0x85 && b.0[address + 2] == 0x74 {
-            printf!("    [*] 0x{}: {:02x} -> 89 \n", format!("{:x}", address),  b.0[address]);
-            printf!("    [*] 0x{}: {:02x} -> eb \n", format!("{:x}", address+2), b.0[address + 2]);
+            printf!("    [*] 0x{}: {} -> 89 \n", format!("{:x}", address).to_uppercase(),  format!("{:02x}", b.0[address]).to_uppercase());
+            printf!("    [*] 0x{}: {} -> EB \n", format!("{:x}", address+2).to_uppercase(), format!("{:02x}", b.0[address + 2]).to_uppercase());
 
             b.0[address] = 0x89;
             b.0[address + 2] = 0xEB;
@@ -46,7 +46,7 @@ async fn main() {
             eprintf!("    [x] Error: Already patched\n");
             exit(1);
         } else {
-            eprintf!("    [x] Error: Found unexpected bytes: 0x{:x}, 0x{:x}\n", b.0[address], b.0[address + 2]);
+            eprintf!("    [x] Error: Found unexpected bytes: 0x{}, 0x{}\n", format!("{:02x}", b.0[address]).to_uppercase(), format!("{:02x}", b.0[address + 2]).to_uppercase());
             exit(1);
         }
     } else {
