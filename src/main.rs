@@ -34,8 +34,8 @@ async fn main() {
         let address = address + 10;
 
         if  b.0[address] == 0x85 && b.0[address + 2] == 0x74 {
-            printf!("    [*] {}: {:02x} -> 89 \n", address,  b.0[address]);
-            printf!("    [*] {}: {:02x} -> eb \n", address+2, b.0[address + 2]);
+            printf!("    [*] 0x{}: {:02x} -> 89 \n", format!("{:x}", address),  b.0[address]);
+            printf!("    [*] 0x{}: {:02x} -> eb \n", format!("{:x}", address+2), b.0[address + 2]);
 
             b.0[address] = 0x89;
             b.0[address + 2] = 0xEB;
