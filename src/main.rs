@@ -16,7 +16,7 @@ async fn main() {
     let version = version::Version::get(&path).await;
     let binary = format!("{}/Contents/MacOS/{}", path, app);
 
-    if !(version.0 <= 1 && version.1 <= 1 && version.2 <= 5) {
+    if !(version.0 <= 1 && version.1 <= 3 && version.2 <= 6) {
         printf!("This tool was tested up to version 1.1.5\nDo you want to continue for version {}.{}.{}? [y/n]: ", version.0, version.1, version.2);
         let mut input = String::new();
         io::stdin().read_line(&mut input).expect("error: unable to read user input");
